@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import Testimonials from '../components/Testimonials';
 
 const About = () => {
   useEffect(() => {
@@ -139,6 +140,9 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* ═══ TESTIMONIALS ═══ */}
+      <Testimonials />
 
       {/* ═══ CTA ═══ */}
       <div className="cta-banner">
