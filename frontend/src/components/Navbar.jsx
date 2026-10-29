@@ -56,6 +56,19 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  /* Lock background scrolling while the sheet is open */
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    /* Ask the smooth-scroll engine to pause while the sheet is up */
+    window.dispatchEvent(new CustomEvent('nx:scrolllock', { detail: true }));
+    return () => {
+      document.body.style.overflow = previous;
+      window.dispatchEvent(new CustomEvent('nx:scrolllock', { detail: false }));
+    };
+  }, [isOpen]);
+
   const closeMenu = () => setIsOpen(false);
   const isActive = (path) => location.pathname === path;
 
@@ -108,8 +121,24 @@ const Navbar = () => {
         </button>
       </nav>
 
-      {/* Mobile sheet */}
-      <div className={`mobile-menu ${isOpen ? 'open' : ''}`} id="mobileMenu">
+      {/* Mobile sheet — drag down to dismiss, like a native iOS sheet */}
+      <motion.div
+        className={`mobile-menu sheet-drag ${isOpen ? 'open' : ''}`}
+        id="mobileMenu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
+        initial={false}
+        animate={{ y: isOpen ? '0%' : '105%' }}
+        transition={{ type: 'spring', stiffness: 380, damping: 38, mass: 0.9 }}
+        drag={isOpen ? 'y' : false}
+        dragDirectionLock
+        dragConstraints={{ top: 0, bottom: 0 }}
+        dragElastic={{ top: 0, bottom: 0.45 }}
+        onDragEnd={(event, info) => {
+          if (info.offset.y > 90 || info.velocity.y > 650) setIsOpen(false);
+        }}
+      >
         <div className="mob-header">
           <Link to="/" className="nav-brand" onClick={closeMenu} style={{ fontSize: '1.2rem' }}>
             <Logo size={32} />
@@ -146,7 +175,7 @@ const Navbar = () => {
             <a href="https://linkedin.com"><i className="ti ti-brand-linkedin"></i></a>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <div className={`mob-overlay ${isOpen ? 'open' : ''}`} onClick={closeMenu}></div>
     </>

@@ -27,15 +27,15 @@ const Careers = () => {
       {/* ═══ HERO ═══ */}
       <header className="careers-hero" style={{ position: 'relative', color: '#fff', padding: '120px 0 80px', textAlign: 'center', overflow: 'hidden' }}>
         <ParticleNetwork />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(rgba(10, 22, 40, 0.4), rgba(10, 22, 40, 0.8))', zIndex: 1 }}></div>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9))', zIndex: 1 }}></div>
         
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="section-label reveal" style={{ color: 'var(--accent)' }}>Elite Engineering Careers</div>
+          <div className="section-label reveal" style={{ color: 'var(--brand-primary-soft)' }}>Elite Engineering Careers</div>
           <h1 className="section-heading reveal" style={{ color: '#fff', fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '24px' }}>Build the <em>Infrastructure</em> of Tomorrow.</h1>
           <p className="section-sub reveal" style={{ color: 'rgba(255,255,255,0.8)', margin: '0 auto', maxWidth: '700px' }}>We are curating a league of extraordinary engineers from USA America's premier Ivy League and technical institutions to architect the future of global enterprise AI.</p>
           <div className="reveal" style={{ marginTop: '40px', display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="#positions" className="btn btn--primary">View Open Roles</a>
-            <a href="#culture" className="btn btn--outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>Our Culture</a>
+            <a href="#culture" className="btn btn--outline" style={{ color: 'var(--brand-primary)', background: 'rgba(var(--brand-primary-rgb), 0.16)' }}>Our Culture</a>
           </div>
         </div>
       </header>
@@ -121,7 +121,7 @@ const Careers = () => {
       </section>
 
       {/* ═══ FINAL CTA ═══ */}
-      <div className="cta-banner" style={{background: 'linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%)', padding: '120px 20px'}}>
+      <div className="cta-banner">
         <div className="container" style={{textAlign: 'center'}}>
           <h2 style={{color: '#fff', fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '24px'}}>Ascend Your <em>Technical</em> Career.</h2>
           <p style={{color: 'rgba(255,255,255,0.7)', marginBottom: '48px', maxWidth: '600px', margin: '0 auto 48px'}}>Join an elite network that prioritizes radical transparency, technical mastery, and absolute engineering integrity.</p>
@@ -142,7 +142,7 @@ const Perk = ({ icon, title, text }) => (
 
 const Step = ({ num, title, desc }) => (
   <div className="step-node reveal" style={{textAlign: 'center', flex: 1}}>
-    <div className="step-circle" style={{width: '60px', height: '60px', background: '#fff', border: '2px solid var(--primary)', borderRadius: '50%', margin: '0 auto 20px', display: 'grid', placeItems: 'center', fontWeight: 800, color: 'var(--primary)', boxShadow: '0 0 0 8px #f0f7ff'}}>{num}</div>
+    <div className="step-circle" style={{width: '60px', height: '60px', background: '#fff', border: '2px solid var(--primary)', borderRadius: '50%', margin: '0 auto 20px', display: 'grid', placeItems: 'center', fontWeight: 800, color: 'var(--primary)', boxShadow: '0 0 0 8px var(--brand-tint)'}}>{num}</div>
     <h4 style={{fontWeight: 700, marginBottom: '8px'}}>{title}</h4>
     <p style={{fontSize: '13px', color: 'var(--text-500)'}}>{desc}</p>
   </div>

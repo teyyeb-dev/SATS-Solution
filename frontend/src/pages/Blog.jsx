@@ -141,13 +141,13 @@ const Blog = () => {
       <section style={{padding: '60px 0 100px', background: 'var(--bg-alt)'}}>
         <div className="container">
           {/* Featured Section */}
-          <div className="featured-banner reveal" style={{ background: 'linear-gradient(135deg, #020617 0%, #0f172a 100%)', border: '1px solid rgba(255,255,255,0.1)' }}>
+          <div className="featured-banner reveal" style={{ background: 'linear-gradient(150deg, #000000 0%, #1c1c1e 100%)', border: '1px solid rgba(255,255,255,0.1)' }}>
             <div className="featured-image-box" style={{background: "url('/epic_america.png') no-repeat center center", backgroundSize: 'cover', minHeight: '400px'}}></div>
             <div className="featured-body" style={{ color: '#fff' }}>
-              <span className="insight-tag" style={{background: 'rgba(56, 189, 248, 0.15)', padding: '6px 14px', borderRadius: '20px', fontSize: '10px', fontWeight: 800, color: '#38bdf8', marginBottom: '15px', textTransform: 'uppercase', letterSpacing: '1px', border: '1px solid rgba(56, 189, 248, 0.3)'}}>Primary White Paper</span>
-              <h2 style={{fontSize: '2.6rem', margin: '20px 0', color: '#fff', lineHeight: 1.2}}>The 2026 Enterprise <em style={{color: '#38bdf8', fontStyle: 'normal'}}>AI Roadmap.</em></h2>
-              <p className="insight-p" style={{fontSize: '1.1rem', marginBottom: '40px', color: '#94a3b8', lineHeight: 1.7}}>A formal 40-page technical framework for transitioning to autonomous operations with total data sovereignty. Authored by our elite technical council.</p>
-              <button className="btn btn--primary" onClick={() => generatePDF("2026 Enterprise AI Roadmap")} style={{padding: '16px 40px', fontSize: '15px', background: 'linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%)', border: 'none', boxShadow: '0 8px 25px rgba(14, 165, 233, 0.4)'}}>Download Full PDF <i className="ti ti-download"></i></button>
+              <span className="insight-tag" style={{background: 'rgba(var(--brand-primary-rgb), 0.18)', padding: '6px 14px', borderRadius: '20px', fontSize: '10px', fontWeight: 800, color: 'var(--brand-primary)', marginBottom: '15px', textTransform: 'uppercase', letterSpacing: '1px', border: '1px solid rgba(var(--brand-primary-rgb), 0.35)'}}>Primary White Paper</span>
+              <h2 style={{fontSize: '2.6rem', margin: '20px 0', color: '#fff', lineHeight: 1.2}}>The 2026 Enterprise <em style={{color: 'var(--brand-primary-soft)', fontStyle: 'normal'}}>AI Roadmap.</em></h2>
+              <p className="insight-p" style={{fontSize: '1.1rem', marginBottom: '40px', color: 'rgba(235, 235, 245, 0.6)', lineHeight: 1.7}}>A formal 40-page technical framework for transitioning to autonomous operations with total data sovereignty. Authored by our elite technical council.</p>
+              <button className="btn btn--primary" onClick={() => generatePDF("2026 Enterprise AI Roadmap")} style={{padding: '16px 40px', fontSize: '15px', background: 'var(--brand-primary)', border: 'none', boxShadow: '0 10px 26px -14px rgba(var(--brand-primary-rgb), 0.9)'}}>Download Full PDF <i className="ti ti-download"></i></button>
             </div>
           </div>
 

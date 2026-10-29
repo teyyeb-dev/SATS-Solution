@@ -11,7 +11,7 @@ const ParticleNetwork = () => {
     let particles = [];
     
     const particleCount = window.innerWidth < 768 ? 50 : 100;
-    const colors = ['#38bdf8', '#818cf8', '#c084fc', '#e2e8f0']; // Tech palette
+    const colors = ['#ea580c', '#c2410c', '#0f766e', '#fdefe6']; // Ink & Ember palette
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -59,10 +59,10 @@ const ParticleNetwork = () => {
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Cinematic dark slate/blue gradient background with transparency
+      // Cinematic ink gradient background with transparency
       const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-      gradient.addColorStop(0, 'rgba(2, 6, 23, 0.85)'); // Very dark slate (85% opacity)
-      gradient.addColorStop(1, 'rgba(15, 23, 42, 0.95)'); // Slightly lighter slate (95% opacity)
+      gradient.addColorStop(0, 'rgba(11, 10, 9, 0.85)'); // Brand ink (85% opacity)
+      gradient.addColorStop(1, 'rgba(23, 19, 16, 0.95)'); // Raised ink (95% opacity)
       
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -80,7 +80,7 @@ const ParticleNetwork = () => {
           if (dist < 180) {
             ctx.beginPath();
             const opacity = 1 - (dist / 180);
-            ctx.strokeStyle = `rgba(56, 189, 248, ${opacity * 0.4})`; // Soft cyan lines
+            ctx.strokeStyle = `rgba(234, 88, 12, ${opacity * 0.4})`; // Soft ember lines
             ctx.lineWidth = (particles[i].z + particles[j].z) * 0.3; // Line width based on depth
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);

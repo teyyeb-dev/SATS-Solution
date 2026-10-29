@@ -25,18 +25,18 @@ const About = () => {
         keywords="Yale, UPenn, Harvard, Georgia Tech, AI Engineers, USA Tech Team"
       />
       {/* ═══ HERO ═══ */}
-      <header className="about-hero" style={{ position: 'relative', color: '#fff', padding: '120px 0 80px', textAlign: 'center', overflow: 'hidden', background: '#020617' }}>
+      <header className="about-hero" style={{ position: 'relative', color: '#fff', padding: '120px 0 80px', textAlign: 'center', overflow: 'hidden', background: '#000000' }}>
         <img
           src="/epic_georgia.png"
           alt="Epic Georgia"
           className="live-space-bg"
-          style={{ opacity: 0.7, filter: 'contrast(1.05) brightness(1.1)', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+          style={{ opacity: 0.6, filter: 'contrast(1.05) brightness(0.78) saturate(0.92)', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(2, 6, 23, 0.3), rgba(2, 6, 23, 0.7))', zIndex: 1 }}></div>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.85))', zIndex: 1 }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="section-label" style={{justifyContent: 'center', color: '#60a5fa', fontWeight: 800}}>Our Company</div>
+          <div className="section-label" style={{justifyContent: 'center', color: 'var(--brand-primary)', fontWeight: 800}}>Our Company</div>
           <h1 className="section-heading reveal" style={{textAlign: 'center', maxWidth: '800px', margin: '20px auto', color: '#fff', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', textShadow: '0 10px 30px rgba(0,0,0,0.5)'}}>
-            USA America's Elite <em style={{color: '#60a5fa', fontStyle: 'normal'}}>Technical</em> Powerhouse.
+            USA America's Elite <em style={{color: 'var(--brand-primary-soft)', fontStyle: 'normal'}}>Technical</em> Powerhouse.
           </h1>
         </div>
       </header>

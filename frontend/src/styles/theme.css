@@ -1,0 +1,328 @@
+/* ══════════════════════════════════════════════════
+   BRAND THEME — INK & EMBER  (single, locked palette)
+   Loaded last so it retints the whole site.
+
+   Six colours, two signatures:
+     Ember #C2410C · Teal #0F766E
+     Ink #0B0A09 · Raised #171310
+     Ivory #FAF7F2 · Tint #FDEFE6
+   ══════════════════════════════════════════════════ */
+
+:root {
+  --brand-primary: #c2410c;
+  --brand-primary-strong: #9a3412;
+  --brand-primary-soft: #ea580c;
+  --brand-primary-rgb: 194, 65, 12;
+
+  --brand-secondary: #0f766e;
+  --brand-secondary-strong: #115e59;
+  --brand-secondary-rgb: 15, 118, 110;
+
+  --brand-ink: #0b0a09;
+  --brand-ink-raised: #171310;
+  --brand-surface: #faf7f2;
+  --brand-tint: #fdefe6;
+
+  --ios-material: rgba(250, 247, 242, 0.8);
+  --ios-sheet: rgba(250, 247, 242, 0.96);
+}
+
+/* ══════════════════════════════════════════════════
+   TOKEN MAPPING
+   ══════════════════════════════════════════════════ */
+:root {
+  --ios-blue: var(--brand-primary);
+  --ios-blue-press: var(--brand-primary-strong);
+  --ios-teal: var(--brand-secondary);
+  --ios-purple: var(--brand-primary-soft);
+  --ios-bg-grouped: var(--brand-surface);
+
+  --primary: var(--brand-primary);
+  --primary-dark: var(--brand-primary-strong);
+  --primary-light: rgba(var(--brand-primary-rgb), 0.1);
+  --primary-glow: rgba(var(--brand-primary-rgb), 0.09);
+  --primary-glow-strong: rgba(var(--brand-primary-rgb), 0.18);
+  --accent: var(--brand-secondary);
+  --accent-light: rgba(var(--brand-secondary-rgb), 0.12);
+
+  --bg: var(--brand-surface);
+  --bg-alt: #ffffff;
+  --bg-dark: var(--brand-ink);
+  --bg-dark-alt: var(--brand-ink-raised);
+
+  /* Monochrome ramp: a two-hue gradient reads cheap on buttons */
+  --gradient-primary: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-soft) 100%);
+  --gradient-brand: linear-gradient(120deg, var(--brand-primary) 0%, var(--brand-primary-soft) 52%, var(--brand-secondary) 100%);
+  --gradient-hero: linear-gradient(180deg, var(--brand-surface), #ffffff);
+  --gradient-cta: linear-gradient(135deg, var(--brand-ink) 0%, var(--brand-ink-raised) 100%);
+  --gradient-text: linear-gradient(120deg, var(--brand-primary), var(--brand-primary-soft));
+
+  --shadow-glow: 0 10px 30px -14px rgba(var(--brand-primary-rgb), 0.45);
+  --shadow-glow-strong: 0 16px 40px -14px rgba(var(--brand-primary-rgb), 0.5);
+
+  --glow-rgb: var(--brand-primary-rgb);
+}
+
+/* ─── SOFT BACKGROUND WASH: the light surface feels lit, not flat ─── */
+body {
+  background-image:
+    radial-gradient(900px 520px at 12% -8%, rgba(var(--brand-primary-rgb), 0.07), transparent 62%),
+    radial-gradient(760px 460px at 92% 4%, rgba(var(--brand-secondary-rgb), 0.06), transparent 60%);
+  background-repeat: no-repeat;
+}
+
+/* ─── HEADINGS & ACCENTS ─── */
+.section-heading em,
+.sv-hero h1 em { color: var(--brand-primary); }
+
+/* Accents sitting on dark surfaces need the lighter ember to stay legible */
+.about-hero .section-heading em,
+.careers-hero .section-heading em,
+.blog-hero .section-heading em,
+.newsletter-section .section-heading em,
+.featured-banner h2 em,
+.cta-banner h2 em {
+  color: var(--brand-primary-soft);
+}
+
+.section-label::after { background: var(--brand-secondary); }
+
+/* ─── BUTTONS ─── */
+.btn--primary {
+  background: var(--gradient-primary);
+  background-size: 170% 170%;
+  background-position: 0% 50%;
+  color: #fff;
+  box-shadow: 0 12px 28px -16px rgba(var(--brand-primary-rgb), 0.9);
+  transition:
+    background-position 0.6s ease,
+    transform 0.32s var(--ios-spring, ease),
+    box-shadow 0.32s ease;
+}
+.btn--primary:hover {
+  background-position: 100% 50%;
+  box-shadow: 0 16px 34px -16px rgba(var(--brand-primary-rgb), 0.95);
+  transform: none;
+}
+
+.btn--outline {
+  background: rgba(var(--brand-primary-rgb), 0.1);
+  color: var(--brand-primary);
+}
+.btn--outline:hover {
+  background: rgba(var(--brand-primary-rgb), 0.16);
+  color: var(--brand-primary);
+}
+
+.premium-submit-btn {
+  background: var(--gradient-primary);
+  box-shadow: 0 12px 28px -16px rgba(var(--brand-primary-rgb), 0.9);
+}
+.premium-submit-btn:hover { background: var(--brand-primary-strong); }
+
+/* ─── NAVIGATION ─── */
+.nav-pill { background: rgba(var(--brand-primary-rgb), 0.12); }
+.nav-links a.active { color: var(--brand-primary); }
+.nav-cta,
+.nav-links a.nav-cta { background: var(--brand-primary); }
+.nav-cta:hover,
+.nav-links a.nav-cta:hover { background: var(--brand-primary-strong); }
+.hamburger { color: var(--brand-primary); }
+
+.mob-nav-link:hover,
+.mob-nav-link.active { color: var(--brand-primary); }
+.mob-nav-link:hover i,
+.mob-nav-link.active i { color: var(--brand-primary); }
+
+.navbar,
+.navbar.scrolled { background: var(--ios-material); }
+.mobile-menu { background: var(--ios-sheet); }
+.mob-header,
+.mob-footer { background: transparent; }
+
+/* ─── CARD ICON TINTS ─── */
+.svc-icon,
+.tech-icon,
+.pillar-icon,
+.svc-icon--blue {
+  background: rgba(var(--brand-primary-rgb), 0.1);
+  color: var(--brand-primary);
+}
+.svc-card:hover .svc-icon,
+.tech-card:hover .tech-icon,
+.svc-card--accent-blue:hover .svc-icon--blue {
+  background: rgba(var(--brand-primary-rgb), 0.16);
+  color: var(--brand-primary);
+}
+.svc-icon--amber {
+  background: rgba(var(--brand-secondary-rgb), 0.14);
+  color: var(--brand-secondary-strong);
+}
+.svc-card--accent-amber:hover .svc-icon--amber {
+  background: rgba(var(--brand-secondary-rgb), 0.2);
+  color: var(--brand-secondary-strong);
+}
+
+/* ─── FORM TILES ─── */
+.premium-service-tile.selected {
+  background: rgba(var(--brand-primary-rgb), 0.1);
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 1px var(--brand-primary) inset;
+  color: var(--brand-primary);
+}
+
+/* ─── SCROLL / PROGRESS / CURSOR ─── */
+.ios-scroll-progress {
+  background: var(--gradient-brand);
+  box-shadow: 0 0 12px rgba(var(--brand-primary-rgb), 0.55);
+}
+
+.nx-cursor-dot { background: var(--brand-primary); }
+.nx-cursor-ring {
+  border-color: rgba(var(--brand-primary-rgb), 0.6);
+  background: rgba(var(--brand-primary-rgb), 0.06);
+}
+.nx-cursor.is-hover .nx-cursor-ring {
+  background: rgba(var(--brand-primary-rgb), 0.14);
+  border-color: rgba(var(--brand-primary-rgb), 0.9);
+}
+
+/* ─── DARK SECTIONS & FOOTER ─── */
+footer { background: var(--brand-ink); }
+.reviews-section { background: var(--brand-ink); }
+.reviews-section .section-heading em {
+  /* the old gradient-clipped text kept a purple/cyan fill; reset it */
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--brand-primary-soft);
+}
+
+.agg-number { background: linear-gradient(135deg, #fff, var(--brand-primary-soft)); }
+.agg-number span { background: linear-gradient(135deg, var(--brand-primary-soft), var(--brand-secondary)); }
+.badge-name.google,
+.badge-name.clutch { color: rgba(255, 255, 255, 0.85); }
+
+/* ─── CTA BANNER ───
+   Full-bleed, so it must never carry a card radius: a radius here
+   leaves the page background visible as notches in all four corners.
+   The glow is painted with layered gradients instead of orbs poking
+   past the edges. */
+.cta-banner {
+  border-radius: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(900px 460px at 84% 16%, rgba(var(--brand-primary-rgb), 0.4), transparent 68%),
+    radial-gradient(720px 420px at 6% 96%, rgba(var(--brand-secondary-rgb), 0.24), transparent 66%),
+    linear-gradient(135deg, var(--brand-ink) 0%, var(--brand-ink-raised) 100%);
+}
+
+.cta-banner .cta-orb--1 { background: rgba(var(--brand-primary-rgb), 0.35); }
+.cta-banner .cta-orb--2 { background: rgba(var(--brand-secondary-rgb), 0.28); }
+
+.cta-banner .cta-sub { color: rgba(255, 255, 255, 0.68); }
+
+.blur-scroller {
+  background: var(--brand-ink);
+  border-top-color: rgba(255, 255, 255, 0.06);
+}
+.blur-scroller-item { color: rgba(255, 255, 255, 0.2); }
+.blur-scroller-dot { background: rgba(255, 255, 255, 0.16); }
+.blur-scroller-dot[data-accent='true'] {
+  background: var(--brand-secondary);
+  box-shadow: 0 0 14px rgba(var(--brand-secondary-rgb), 0.9);
+}
+
+/* ─── CONTACT: the old navy panel becomes warm ink ─── */
+.contact-split-wrapper {
+  background:
+    radial-gradient(900px 520px at 10% -8%, rgba(var(--brand-primary-rgb), 0.1), transparent 62%),
+    radial-gradient(760px 460px at 92% 6%, rgba(var(--brand-secondary-rgb), 0.08), transparent 60%),
+    var(--brand-surface);
+}
+
+.contact-split-bg::before {
+  background: radial-gradient(circle, rgba(var(--brand-primary-rgb), 0.16) 0%, transparent 70%);
+}
+.contact-split-bg::after {
+  background: radial-gradient(circle, rgba(var(--brand-secondary-rgb), 0.14) 0%, transparent 70%);
+}
+
+.contact-split-container {
+  background: rgba(255, 255, 255, 0.62);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-info-panel {
+  background:
+    radial-gradient(460px 320px at 100% 0%, rgba(var(--brand-primary-rgb), 0.42), transparent 70%),
+    linear-gradient(155deg, var(--brand-ink) 0%, var(--brand-ink-raised) 100%);
+}
+
+.contact-info-header h2 em {
+  color: var(--brand-primary-soft);
+  font-style: italic;
+}
+.contact-info-header p { color: rgba(255, 255, 255, 0.64); }
+
+.contact-info-icon {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(var(--brand-primary-rgb), 0.18);
+  color: var(--brand-primary-soft);
+}
+
+.contact-info-text h4 { color: rgba(255, 255, 255, 0.46); }
+.contact-info-text p,
+.contact-info-text a { color: rgba(255, 255, 255, 0.94); }
+.contact-info-text a:hover { color: var(--brand-primary-soft); }
+
+/* ─── CAREERS: numbered step halo follows the palette ─── */
+.step-node .step-circle { box-shadow: 0 0 0 8px var(--brand-tint); }
+.careers-hero .section-label { color: var(--brand-primary-soft); }
+
+/* ─── LOGO ─── */
+.logo-wrapper .logo-stop--primary { stop-color: var(--brand-primary); }
+.logo-wrapper .logo-stop--secondary { stop-color: var(--brand-secondary); }
+.logo-wrapper .logo-node--primary { fill: var(--brand-primary); }
+.logo-wrapper .logo-node--secondary { fill: var(--brand-secondary); }
+
+/* ─── TESTIMONIALS ─── */
+.tm-item::before,
+.tm-accent-bar {
+  background: linear-gradient(180deg, var(--brand-secondary), var(--brand-primary));
+}
+.tm-item:hover { border-color: rgba(var(--brand-primary-rgb), 0.34); }
+.tm-item.is-open {
+  border-color: rgba(var(--brand-primary-rgb), 0.5);
+  box-shadow:
+    0 22px 50px -24px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(var(--brand-primary-rgb), 0.14);
+}
+.tm-avatar { border-color: rgba(var(--brand-primary-rgb), 0.4); }
+.tm-toggle:hover .tm-avatar { border-color: rgba(var(--brand-primary-rgb), 0.85); }
+.tm-toggle-label { color: var(--brand-secondary); }
+.tm-item.is-open .tm-chevron,
+.tm-toggle:hover .tm-chevron {
+  background: rgba(var(--brand-primary-rgb), 0.16);
+  border-color: rgba(var(--brand-primary-rgb), 0.45);
+}
+.tm-aggregate-score {
+  background: linear-gradient(135deg, #fff, var(--brand-primary-soft) 55%, var(--brand-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── SEGMENTED CONTROL ─── */
+.filter-btn.active { color: var(--brand-primary); }
+
+/* ─── MOBILE TAB BAR ─── */
+.ios-tab.active { color: var(--brand-primary); }
+.ios-tabbar { background: var(--ios-material); }
+
+/* ─── TAGS ─── */
+.svc-card:hover .tag {
+  background: rgba(var(--brand-primary-rgb), 0.1);
+  color: var(--brand-primary);
+}
+
+::selection { background: rgba(var(--brand-primary-rgb), 0.22); }

@@ -83,7 +83,7 @@ const Services = () => {
         textAlign: 'center',
         overflow: 'hidden',
         padding: '160px 0 100px',
-        backgroundColor: '#020617'
+        backgroundColor: '#000000'
       }}>
         {/* NYC Skyline "Live" Background Layer */}
         <div
@@ -95,8 +95,8 @@ const Services = () => {
             backgroundImage: "url('/epic_newyork.png')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: 0.9,
-            filter: 'contrast(1.1) brightness(0.8)'
+            opacity: 0.85,
+            filter: 'contrast(1.05) brightness(0.62) saturate(0.9)'
           }}
         ></div>
 
@@ -104,14 +104,14 @@ const Services = () => {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(to bottom, rgba(2, 6, 23, 0.4) 0%, rgba(2, 6, 23, 0.1) 50%, rgba(2, 6, 23, 0.6) 100%)',
+          background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.8) 100%)',
           zIndex: 1
         }}></div>
 
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="section-label" style={{justifyContent: 'center', marginBottom: '24px', color: '#60a5fa', fontWeight: 800}}>Enterprise AI & Automation</div>
+          <div className="section-label" style={{justifyContent: 'center', marginBottom: '24px', color: 'var(--brand-primary)', fontWeight: 800}}>Enterprise AI & Automation</div>
           <h1 className="reveal" style={{ color: '#fff', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', lineHeight: 1.1, letterSpacing: '-2px', fontWeight: 900, textShadow: '0 4px 30px rgba(0,0,0,0.6)' }}>
-            Orchestrating the <em style={{color: '#60a5fa', fontStyle: 'normal'}}>Autonomous Enterprise.</em><br />Scale Infinitely.
+            Orchestrating the <em style={{color: 'var(--brand-primary-soft)', fontStyle: 'normal'}}>Autonomous Enterprise.</em><br />Scale Infinitely.
           </h1>
           <p className="sv-hero-sub reveal" style={{ color: 'rgba(255,255,255,0.9)', maxWidth: '800px', margin: '0 auto 48px', fontSize: '1.25rem', fontWeight: 600, textShadow: '0 2px 10px rgba(0,0,0,0.4)' }}>SATS Solutions engineers hyper-intelligent AI ecosystems for global medical and technical firms. We eliminate operational friction, automate high-stakes documentation, and achieve unprecedented cost efficiencies through elite-tier engineering.</p>
           <div className="hero-btns" style={{justifyContent: 'center', animationDelay: '0.2s'}}>

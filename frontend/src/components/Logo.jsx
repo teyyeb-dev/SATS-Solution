@@ -26,14 +26,14 @@ const Logo = ({ size = 40, className = "" }) => {
         />
 
         {/* Technical Nodes (Dots) */}
-        <circle cx="30" cy="35" r="5" fill="#4f46e5" />
-        <circle cx="70" cy="65" r="5" fill="#06b6d4" />
+        <circle cx="30" cy="35" r="5" className="logo-node--primary" />
+        <circle cx="70" cy="65" r="5" className="logo-node--secondary" />
         <circle cx="50" cy="50" r="4" fill="#fff" />
 
         <defs>
           <linearGradient id="logo-gradient" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#4f46e5" />
-            <stop offset="100%" stopColor="#06b6d4" />
+            <stop offset="0%" className="logo-stop--primary" />
+            <stop offset="100%" className="logo-stop--secondary" />
           </linearGradient>
 
           <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">

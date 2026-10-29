@@ -1,0 +1,128 @@
+/* ══════════════════════════════════════════════════
+   PRO MOTION — GSAP + Lenis layer
+   Custom cursor, split-text helpers, scroll polish.
+   ══════════════════════════════════════════════════ */
+
+/* ─── SPLIT TEXT ─── */
+.nx-word,
+.nx-char {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+}
+
+/* SplitText preserves the original spaces between words, so no
+   margin is added here — it would double the gap. */
+.nx-word { vertical-align: baseline; }
+
+/* SplitText keeps the <em> gradient on the parent; make sure it survives */
+.section-heading em .nx-char,
+.section-heading .nx-char {
+  -webkit-text-fill-color: inherit;
+}
+
+/* ─── CUSTOM CURSOR ─── */
+.nx-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
+
+.nx-cursor-ring {
+  position: absolute;
+  top: -17px;
+  left: -17px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 122, 255, 0.55);
+  background: rgba(0, 122, 255, 0.05);
+  transition:
+    width 0.3s var(--ios-spring, ease),
+    height 0.3s var(--ios-spring, ease),
+    top 0.3s var(--ios-spring, ease),
+    left 0.3s var(--ios-spring, ease),
+    background 0.3s ease,
+    border-color 0.3s ease;
+  will-change: transform;
+}
+
+.nx-cursor-dot {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ios-blue, #007aff);
+  will-change: transform;
+}
+
+.nx-cursor.is-hover .nx-cursor-ring {
+  width: 62px;
+  height: 62px;
+  top: -31px;
+  left: -31px;
+  background: rgba(0, 122, 255, 0.12);
+  border-color: rgba(0, 122, 255, 0.85);
+}
+
+/* Only show the custom cursor where there is a real pointer */
+@media (hover: hover) and (pointer: fine) {
+  .nx-cursor { display: block; }
+  .nx-cursor-active .nx-cursor { opacity: 1; }
+
+  /* Hide the native arrow, but never over text fields */
+  .nx-cursor-active,
+  .nx-cursor-active a,
+  .nx-cursor-active button,
+  .nx-cursor-active .btn,
+  .nx-cursor-active [role='button'],
+  .nx-cursor-active .svc-card,
+  .nx-cursor-active .work-card,
+  .nx-cursor-active .ios-tab,
+  .nx-cursor-active .filter-btn {
+    cursor: none;
+  }
+
+  .nx-cursor-active input,
+  .nx-cursor-active textarea,
+  .nx-cursor-active select,
+  .nx-cursor-active label {
+    cursor: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nx-cursor { display: none !important; }
+  .nx-cursor-active,
+  .nx-cursor-active a,
+  .nx-cursor-active button { cursor: auto !important; }
+}
+
+/* ─── LENIS: keep native anchor scrolling working ─── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* Images revealed by GSAP start clipped so there is no flash */
+.js-reveal-ready .work-thumb img,
+.js-reveal-ready .blog-card-thumb img {
+  will-change: clip-path;
+}
